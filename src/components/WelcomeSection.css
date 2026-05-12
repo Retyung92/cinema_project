@@ -1,0 +1,253 @@
+/* Приветственная секция */
+.welcome-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 70px; /* Отступ для header */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Фоновое изображение */
+.welcome-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.4);
+}
+
+/* Градиентный оверлей */
+.welcome-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 15, 35, 0.95) 0%,
+    rgba(30, 27, 75, 0.7) 30%,
+    rgba(49, 46, 129, 0.6) 50%,
+    rgba(30, 27, 75, 0.7) 70%,
+    rgba(15, 15, 35, 0.95) 100%
+  );
+}
+
+/* Контент */
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  width: 100%; /* На всю ширину */
+  margin: 0 auto;
+  padding: 0 60px;
+  text-align: center;
+}
+
+/* Бейдж */
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(202, 138, 4, 0.15);
+  border: 1px solid rgba(202, 138, 4, 0.4);
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.welcome-badge span:first-child {
+  font-size: 24px;
+}
+
+.welcome-badge span:last-child {
+  color: #F59E0B;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Заголовок */
+.welcome-title {
+  font-size: 56px;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 30px 0;
+  line-height: 1.2;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+/* Описание */
+.welcome-description {
+  font-size: 20px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+/* Особенности */
+.welcome-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+  animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 20px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(202, 138, 4, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(202, 138, 4, 0.2);
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.feature-text h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+}
+
+.feature-text p {
+  font-size: 15px;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+/* Кнопки действий */
+.welcome-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease 0.8s backwards;
+}
+
+.btn-primary-large,
+.btn-secondary-large {
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.btn-primary-large {
+  background: linear-gradient(135deg, #CA8A04 0%, #F59E0B 100%);
+  color: #0F0F23;
+  box-shadow: 0 8px 25px rgba(202, 138, 4, 0.5);
+  font-weight: 700;
+}
+
+.btn-primary-large:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(202, 138, 4, 0.7);
+}
+
+.btn-secondary-large {
+  background: rgba(202, 138, 4, 0.1);
+  color: #F59E0B;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(202, 138, 4, 0.4);
+}
+
+.btn-secondary-large:hover {
+  background: rgba(202, 138, 4, 0.2);
+  border-color: rgba(202, 138, 4, 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(202, 138, 4, 0.4);
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .welcome-title {
+    font-size: 48px;
+  }
+
+  .welcome-description {
+    font-size: 18px;
+  }
+
+  .welcome-features {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-content {
+    padding: 0 30px;
+  }
+
+  .welcome-title {
+    font-size: 36px;
+  }
+
+  .welcome-description {
+    font-size: 16px;
+  }
+
+  .welcome-features {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .welcome-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary-large,
+  .btn-secondary-large {
+    width: 100%;
+  }
+}

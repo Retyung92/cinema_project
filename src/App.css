@@ -1,0 +1,86 @@
+/* Основной контейнер приложения */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background: #0F0F23;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Декоративный фон с градиентами */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: 
+    radial-gradient(circle at 20% 10%, rgba(30, 27, 75, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(49, 46, 129, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(30, 27, 75, 0.35) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Анимированные частицы/звёзды на фоне */
+.App::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(202, 138, 4, 0.3), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(202, 138, 4, 0.2), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(202, 138, 4, 0.3), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(202, 138, 4, 0.25), transparent),
+    radial-gradient(2px 2px at 90% 60%, rgba(202, 138, 4, 0.2), transparent),
+    radial-gradient(1px 1px at 33% 80%, rgba(202, 138, 4, 0.3), transparent),
+    radial-gradient(1px 1px at 15% 90%, rgba(202, 138, 4, 0.2), transparent);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Coming Soon Page */
+.coming-soon-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0F0F23;
+  color: #F8FAFC;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.coming-soon-page h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  background: linear-gradient(135deg, #F8FAFC 0%, #CA8A04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coming-soon-page p {
+  font-size: 20px;
+  color: #94A3B8;
+  margin: 0;
+}

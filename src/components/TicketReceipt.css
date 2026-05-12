@@ -1,0 +1,374 @@
+/* Ticket Receipt - Movie Ticket Stub Design */
+.ticket-receipt-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.ticket-receipt {
+  display: flex;
+  background: #0F0F23;
+  border: 2px solid rgba(202, 138, 4, 0.4);
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(202, 138, 4, 0.15);
+  position: relative;
+}
+
+/* Main Panel */
+.ticket-main {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(202, 138, 4, 0.3);
+}
+
+.ticket-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticket-brand-icon {
+  font-size: 24px;
+}
+
+.ticket-brand-name {
+  font-size: 18px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #CA8A04 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 3px;
+}
+
+.ticket-order {
+  font-size: 13px;
+  font-weight: 700;
+  color: #F59E0B;
+  background: rgba(202, 138, 4, 0.15);
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(202, 138, 4, 0.3);
+  font-family: monospace;
+  letter-spacing: 0.5px;
+}
+
+/* Body */
+.ticket-body {
+  display: flex;
+  gap: 20px;
+}
+
+.ticket-poster-section {
+  flex-shrink: 0;
+}
+
+.ticket-poster-img {
+  width: 90px;
+  height: 135px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(202, 138, 4, 0.2);
+}
+
+.ticket-movie-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ticket-film-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #F8FAFC;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Info Grid */
+.ticket-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ticket-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 10px;
+  background: rgba(30, 27, 75, 0.3);
+  border-radius: 6px;
+  border: 1px solid rgba(202, 138, 4, 0.1);
+}
+
+.info-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+/* Divider with perforation effect */
+.ticket-divider {
+  position: relative;
+  padding: 4px 0;
+}
+
+.divider-dots {
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(202, 138, 4, 0.3) 0px,
+    rgba(202, 138, 4, 0.3) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+/* Footer */
+.ticket-footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.ticket-payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: #94A3B8;
+  line-height: 1.4;
+}
+
+.ticket-price-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.ticket-price-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 2px;
+}
+
+.ticket-price-amount {
+  font-size: 24px;
+  font-weight: 900;
+  color: #F59E0B;
+  line-height: 1;
+}
+
+/* Stub Panel (tear-off) */
+.ticket-stub {
+  width: 160px;
+  min-width: 160px;
+  background: linear-gradient(180deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 15, 35, 0.8) 100%);
+  border-left: 2px dashed rgba(202, 138, 4, 0.3);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.ticket-stub::before,
+.ticket-stub::after {
+  content: '';
+  position: absolute;
+  left: -9px;
+  width: 16px;
+  height: 16px;
+  background: #0F0F23;
+  border: 2px solid rgba(202, 138, 4, 0.4);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.ticket-stub::before {
+  top: -9px;
+}
+
+.ticket-stub::after {
+  bottom: -9px;
+}
+
+.stub-brand {
+  font-size: 13px;
+  font-weight: 800;
+  color: #CA8A04;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.stub-datetime {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.stub-seat {
+  font-size: 14px;
+  font-weight: 800;
+  color: #F59E0B;
+  background: rgba(202, 138, 4, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(202, 138, 4, 0.2);
+}
+
+.stub-cinema {
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+/* Order Number */
+.stub-barcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.barcode-text {
+  font-size: 10px;
+  font-family: monospace;
+  color: #94A3B8;
+  letter-spacing: 1px;
+}
+
+/* Print Button */
+.receipt-print-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #CA8A04 0%, #F59E0B 100%);
+  color: #0F0F23;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(202, 138, 4, 0.3);
+}
+
+.receipt-print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(202, 138, 4, 0.5);
+}
+
+.receipt-print-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+  }
+
+  .ticket-receipt {
+    border: 2px solid #333 !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+  }
+
+  .receipt-print-btn {
+    display: none !important;
+  }
+
+  .ticket-receipt-wrapper {
+    break-inside: avoid;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ticket-receipt {
+    flex-direction: column-reverse;
+    max-width: 100%;
+  }
+
+  .ticket-stub {
+    width: 100%;
+    min-width: unset;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-left: none;
+    border-bottom: 2px dashed rgba(202, 138, 4, 0.3);
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .ticket-stub::before,
+  .ticket-stub::after {
+    display: none;
+  }
+
+  .stub-barcode {
+    width: 100%;
+  }
+
+  .ticket-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ticket-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ticket-footer-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .ticket-price-section {
+    align-items: flex-start;
+  }
+
+  .ticket-poster-img {
+    width: 120px;
+    height: 180px;
+  }
+}

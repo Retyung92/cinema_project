@@ -1,0 +1,147 @@
+/* Карточка фильма */
+.movie-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  background: #1a1a1a;
+}
+
+/* Анимация при наведении - увеличение */
+.movie-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+/* Контейнер постера */
+.movie-poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/3; /* Соотношение сторон постера */
+  overflow: hidden;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Увеличение изображения при наведении */
+.movie-card:hover .movie-poster img {
+  transform: scale(1.1);
+}
+
+/* Оверлей с информацией */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Показываем оверлей при наведении */
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* Информация о фильме */
+.movie-info {
+  width: 100%;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-info {
+  transform: translateY(0);
+}
+
+.movie-title {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+/* Метаданные фильма */
+.movie-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.movie-year,
+.movie-duration,
+.movie-rating {
+  font-size: 13px;
+  color: #b0b0b0;
+  font-weight: 500;
+}
+
+.movie-rating {
+  background: rgba(202, 138, 4, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #F59E0B;
+  border: 1px solid rgba(202, 138, 4, 0.4);
+}
+
+/* Описание фильма */
+.movie-description {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+/* Кнопка "Смотреть" */
+.btn-watch {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #CA8A04 0%, #F59E0B 100%);
+  color: #0F0F23;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(202, 138, 4, 0.3);
+}
+
+.btn-watch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(202, 138, 4, 0.6);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .movie-card:hover {
+    transform: scale(1.02);
+  }
+
+  .movie-title {
+    font-size: 16px;
+  }
+
+  .movie-description {
+    font-size: 13px;
+  }
+}

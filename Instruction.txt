@@ -1,0 +1,34 @@
+On User Interaction
+Load the JavaScript API with your key. 
+<head>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfTlNIsAAAAAPI7Es_CHA_Gq1ehLsl0E7KRLcev"></script>
+  <!-- Your code -->
+</head>
+Call grecaptcha.execute for each action you want to protect. 
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LfTlNIsAAAAAPI7Es_CHA_Gq1ehLsl0E7KRLcev', {action: 'LOGIN'});
+    });
+  }
+</script>
+Send the response token to your application backend. The response token expires after two minutes. 
+
+REST API:
+ Create the request body and save it in a file named request.json . Be sure to make the following replacements:
+
+    TOKEN: The token returned from the grecaptcha.enterprise.execute() call.
+    USER_ACTION: Optional. The user-initiated action specified in the grecaptcha.enterprise.execute()
+{
+  "event": {
+    "token": "TOKEN",
+    "expectedAction": "USER_ACTION",
+    "siteKey": "6LfTlNIsAAAAAPI7Es_CHA_Gq1ehLsl0E7KRLcev",
+  }
+} 
+Send an HTTP POST request with the saved JSON data to the url below. Be sure to make the following replacements:
+
+    API_KEY: The API key associated with the current project.
+https://recaptchaenterprise.googleapis.com/v1/projects/gen-lang-client-0130086301/assessments?key=API_KEY
+

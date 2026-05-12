@@ -1,0 +1,157 @@
+/* Ряд фильмов */
+.movie-row {
+  margin-bottom: 50px;
+}
+
+/* Заголовок ряда */
+.row-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  padding-left: 60px;
+  position: relative;
+}
+
+/* Декоративная линия у заголовка */
+.row-title::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(135deg, #CA8A04 0%, #F59E0B 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(202, 138, 4, 0.4);
+}
+
+/* Контейнер ряда с кнопками */
+.row-container {
+  position: relative;
+  padding: 0 60px;
+}
+
+/* Контейнер с фильмами - горизонтальная прокрутка */
+.row-content {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  
+  /* Скрываем scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.row-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Элемент ряда */
+.row-item {
+  flex: 0 0 250px;
+  min-width: 250px;
+}
+
+/* Кнопки прокрутки */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+/* Показываем кнопки при наведении на ряд */
+.row-container:hover .scroll-btn {
+  opacity: 1;
+}
+
+.scroll-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.scroll-btn-left {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.scroll-btn-right {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .row-title {
+    font-size: 22px;
+    padding-left: 40px;
+  }
+
+  .row-title::before {
+    left: 25px;
+  }
+
+  .row-container {
+    padding: 0 40px;
+  }
+
+  .row-item {
+    flex: 0 0 220px;
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-row {
+    margin-bottom: 40px;
+  }
+
+  .row-title {
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  .row-title::before {
+    left: 5px;
+    width: 3px;
+    height: 24px;
+  }
+
+  .row-container {
+    padding: 0 20px;
+  }
+
+  .row-item {
+    flex: 0 0 180px;
+    min-width: 180px;
+  }
+
+  /* Скрываем кнопки прокрутки на мобильных */
+  .scroll-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .row-item {
+    flex: 0 0 140px;
+    min-width: 140px;
+  }
+
+  .row-content {
+    gap: 10px;
+  }
+}

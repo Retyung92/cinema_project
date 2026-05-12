@@ -1,0 +1,239 @@
+/* User Profile Component */
+
+.user-profile {
+  position: relative;
+}
+
+.user-profile-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(202, 138, 4, 0.2);
+  border-top-color: #CA8A04;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Profile Button */
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(202, 138, 4, 0.1);
+  border: 1px solid rgba(202, 138, 4, 0.3);
+  border-radius: 8px;
+  color: #F8FAFC;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile-button:hover {
+  background: rgba(202, 138, 4, 0.2);
+  border-color: rgba(202, 138, 4, 0.5);
+  transform: translateY(-1px);
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #CA8A04 0%, #F59E0B 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0F0F23;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.profile-name {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 280px;
+  background: rgba(30, 27, 75, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(202, 138, 4, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: dropdownFadeIn 0.3s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(202, 138, 4, 0.2);
+}
+
+.dropdown-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #CA8A04 0%, #F59E0B 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0F0F23;
+  font-weight: 700;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.dropdown-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dropdown-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #F8FAFC;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-email {
+  font-size: 13px;
+  color: #94A3B8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-role {
+  margin-top: 8px;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(202, 138, 4, 0.2);
+  border: 1px solid rgba(202, 138, 4, 0.4);
+  border-radius: 6px;
+  color: #F59E0B;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(202, 138, 4, 0.2);
+  margin: 8px 0;
+}
+
+.dropdown-menu {
+  padding: 8px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #E5E7EB;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: rgba(202, 138, 4, 0.15);
+  color: #F8FAFC;
+}
+
+.dropdown-item svg {
+  flex-shrink: 0;
+  color: #94A3B8;
+}
+
+.dropdown-item:hover svg {
+  color: #F59E0B;
+}
+
+.admin-item {
+  color: #F59E0B;
+}
+
+.admin-item svg {
+  color: #F59E0B;
+}
+
+.logout-item {
+  color: #EF4444;
+}
+
+.logout-item:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.logout-item svg {
+  color: #EF4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-name {
+    display: none;
+  }
+
+  .profile-button {
+    padding: 8px 12px;
+  }
+
+  .profile-dropdown {
+    width: 260px;
+  }
+}
